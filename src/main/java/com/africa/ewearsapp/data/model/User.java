@@ -34,7 +34,7 @@ public class User {
     @Column(nullable = false)
     private String emailAddress;
 
-    private Cart cart;
+    //private Cart cart;
 
 
 }

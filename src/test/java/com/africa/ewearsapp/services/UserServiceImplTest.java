@@ -21,15 +21,13 @@ class UserServiceImplTest {
 
     @Test
     void createUser() {
-        RegisterUserRequest request = new RegisterUserRequest();
-        User user = User.builder()
+        RegisterUserRequest request = RegisterUserRequest.builder()
                 .firstName("chinomso")
                 .lastName("goodnews")
                 .userName("firstNoms")
-                .emailAddress("firstnoms.gmail.com")
+                .userEmail("firstnoms.gmail.com")
                 .password("456Ugc@@@")
                 .build();
-
         assertNotNull(userService.createUser(request));
     }
 }

@@ -17,15 +17,15 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepository;
 
-    BCryptPasswordEncoder passwordEncoder;
+   // BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public String createUser(RegisterUserRequest request) {
-        String encodedPassword = passwordEncoder.encode(request.getPassword());
-        if(userRepository.existsByUsername(request.getUserName())){
+        //String encodedPassword = passwordEncoder.encode(request.getPassword());
+        if(userRepository.existsByUserName(request.getUserName())){
             throw new RuntimeExceptionDecline("This Username already exist!");
         }
-        if(userRepository.existsByEmail(request.getUserEmail())){
+        if(userRepository.existsByEmailAddress(request.getUserEmail())){
             throw new DuplicateEmailException("This Email already exist!");
         }
         User user = User.builder()
